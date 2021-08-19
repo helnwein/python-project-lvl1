@@ -13,4 +13,7 @@ package-install:
 brain-games:
 		poetry run brain-games
 
-.PHONY: install build publish package-install brain-games 
+lint:
+		poetry run flake8 brain_games
+
+.PHONY: install build publish package-install brain-games lint

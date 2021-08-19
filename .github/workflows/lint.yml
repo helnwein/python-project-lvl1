@@ -1,0 +1,16 @@
+name: make-lint
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install poetry and build project
+        run: |
+            pip install poetry
+            make install
+            make build
+            make package-install
+      - name: Lint
+        run: make lint
